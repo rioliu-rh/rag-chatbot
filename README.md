@@ -39,6 +39,11 @@ Options:
 
 run above command in your cron job, vector store will be updated in incremental mode
 
+```
+$ pthon3 chatbot/doc/index.py
+{'num_added': 0, 'num_updated': 0, 'num_skipped': 60, 'num_deleted': 0}
+```
+
 - Launch chatbot UI (Streamlit based)
 
 ```
