@@ -20,6 +20,12 @@ load documents from Confluence space. User can talk with vLLM with queried conte
   SQLLITE_DB_FILE_PATH=//tmp/confluence_rag/record_manager_cache
 ```
 
+- Install this app locally
+
+```
+$ pip3 install -e .
+```
+
 - Index docs from Confluence to local vectore store (Chroma based)
 
 ```
