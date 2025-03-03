@@ -27,15 +27,15 @@ class DocIndexer():
         all_splits = text_splitter.split_documents(docs)
 
         # do index for the docs
-        index(all_splits, record_manager, vector_store,
-              cleanup="incremental", source_id_key="source")
+        return index(all_splits, record_manager, vector_store,
+                     cleanup="incremental", source_id_key="source")
 
 
 @click.command()
 @click.option("--env-file-path", required=False, default=None, help="env file path contains the required os env vars")
 def main(env_file_path):
     doc_indexer = DocIndexer(ConfigHelper(env_file_path))
-    doc_indexer.index()
+    click.echo(doc_indexer.index())
 
 
 if __name__ == "__main__":
