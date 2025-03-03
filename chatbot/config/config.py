@@ -125,6 +125,10 @@ class ConfigHelper():
             self._get_env_var("SQLLITE_DB_FILE_PATH")
         )
 
+    @classmethod
+    def is_debug_logging_enabled(self):
+        return bool(self._get_env_var("DEBUG_LOGGING", default=False))
+
     def _get_env_var(key, default=None):
         value = os.getenv(key, default)
         if value is None:
