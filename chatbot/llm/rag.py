@@ -25,7 +25,9 @@ class RetrievalAndGeneration():
         if not question:
             return "No user input found"
         # define prompt for question-answering
-        prompt = hub.pull("rlm/rag-prompt")
+        # prompt template can be found from https://smith.langchain.com/hub/rlm/rag-prompt-mistral
+        # TODO: we can introduce a prompt selector/resolver to choose different template by model
+        prompt = hub.pull("rlm/rag-prompt-mistral", include_model=True)
         retrieved_docs = self.vectore_store.similarity_search(question)
         docs_content = "\n".join(doc.page_content for doc in retrieved_docs)
         if self.config.is_debug_logging_enabled():
